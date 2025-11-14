@@ -1,19 +1,80 @@
-# EzTweak
+# EzTweak – Harm Reduction Order & Case Management System
 
-<img width="1024" height="1024" alt="tweak-easy" src="https://github.com/user-attachments/assets/3fa3dc03-5260-469a-80cc-a6c392ca3e9a" />
-<img width="1024" height="1536" alt="sinvc" src="https://github.com/user-attachments/assets/6fb90b90-9f9e-40f1-add7-0f44e0766dad" />
+<img width="200" alt="Medicine Wheel Theme" src="https://github.com/user-attachments/assets/3fa3dc03-5260-469a-80cc-a6c392ca3e9a" />
+<img width="200" alt="Neon Theme" src="https://github.com/user-attachments/assets/6fb90b90-9f9e-40f1-add7-0f44e0766dad" />
 
-pleae use the provided images for the  main icon for this system, and create two themes, dedicated to both these images
-Tweak Easy – Harm Reduction Order & Case Management System
+## Overview
 
-Tweak Easy is a comprehensive, professional-grade web application designed to support harm reduction outreach teams in delivering effective services to clients. The platform streamlines order placement, case management, incident reporting, and referral operations for staff, while also empowering clients to arrange delivery and pickup of harm reduction supplies.
+EzTweak (Tweak Easy) is a comprehensive, professional-grade web application designed to support harm reduction outreach teams in delivering effective services to clients. The platform streamlines order placement, case management, incident reporting, and referral operations for staff, while also empowering clients to arrange delivery and pickup of harm reduction supplies.
 
-Key Features and Purpose:
+## 🚀 Quick Start
 
-Order Management for Staff:
-Outreach staff can quickly and efficiently place or fill orders for harm reduction supplies on behalf of clients while engaged in field work. The interface allows for rapid inventory selection, quantity input, and easy navigation, minimizing time spent on administrative tasks.
+### Installation
+```bash
+npm install
+```
 
-Product displayed, each product is displayed as a small widget icon, with its name, custom color, custom font color, tile, and description, along with amount of stock inventory on hand, and a option to upload a picture, or provide the URL 9we ask that you create each SVG/PNG image graphics for all the harm reduction elements and make them with a trnasparent background, and a while color )  and when the end user is on the order seciton and clicks on one of these widges,  a buubble will appear in the top right hand corner of the prODUCT,  and in that bubble will display 1, if clicked another time 2, another time 3, etc, but on the top LEFT hand side, their will be a red bubble with a - in the bubble in white font, when clicked it will remove   onE from the order. 
+### Development Mode
+```bash
+npm run dev
+```
+This starts both the React frontend (port 3000) and Express backend (port 5000) concurrently.
+
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:5000
+
+### Production Build
+```bash
+npm run build
+npm start
+```
+
+### Demo Credentials
+- **Username**: `admin`
+- **Password**: `admin123`
+
+## 🎨 Dual Theme System
+
+The application features two beautiful themes that can be toggled with a single click:
+
+- **Medicine Wheel Theme**: Warm, indigenous-inspired earth tones (beige, brown, red, yellow)
+- **Neon Theme**: Modern blue/purple gradient with glowing effects
+
+## ✨ Features Implemented
+
+### 🔐 Authentication & Security
+- Secure login and registration system
+- JWT-based authentication
+- Role-based access control (Client, Staff, Admin)
+- Password hashing with bcrypt
+- SQL injection protection via parameterized queries
+- Session management
+
+### 📦 Order Management for Staff
+Outreach staff can quickly and efficiently place or fill orders for harm reduction supplies on behalf of clients while engaged in field work.
+
+**Unique Product Card Interface:**
+- Each product displayed as a colorful widget with custom colors
+- Product name, description, category, and stock quantity
+- Custom SVG icons for each supply type
+- **Bubble Counter System** (as requested):
+  - Click product to add to cart
+  - **Green bubble** with quantity appears in **top-right corner**
+  - **Red bubble** with minus (-) button appears in **top-left corner**
+  - Click minus to remove one item
+  - Real-time cart summary shows total items
+  
+**10 Pre-loaded Harm Reduction Supplies:**
+1. Syringes (1ml)
+2. Naloxone Kits
+3. Alcohol Swabs
+4. Sharps Containers
+5. Condoms
+6. Sterile Water
+7. Cookers
+8. Cotton Filters
+9. Tourniquets
+10. Bandages 
 
 Client Self-Service:
 Clients can log in to the platform to schedule harm reduction deliveries or pickups based on staff availability. The process is straightforward, allowing users to choose items, preferred dates, and specific drop-off/pickup locations.
