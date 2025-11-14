@@ -28,14 +28,14 @@ app.use('/api/products', productsRoutes);
 app.use('/api/orders', ordersRoutes);
 
 // Health check
-app.get('/api/health', (req, res) => {
+app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', message: 'EzTweak API is running' });
 });
 
 // Serve static files in production
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client')));
-  app.get('*', (req, res) => {
+  app.get('*', (_req, res) => {
     res.sendFile(path.join(__dirname, '../client/index.html'));
   });
 }

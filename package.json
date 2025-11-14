@@ -6,7 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
-    "server:dev": "nodemon --watch src/server --exec ts-node src/server/server.ts",
+    "server:dev": "nodemon --watch src/server --exec \"ts-node --project tsconfig.ts-node.json src/server/server.ts\"",
     "client:dev": "vite",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build",
