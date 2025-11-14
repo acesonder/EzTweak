@@ -3,7 +3,7 @@
 <img width="1024" height="1024" alt="tweak-easy" src="https://github.com/user-attachments/assets/3fa3dc03-5260-469a-80cc-a6c392ca3e9a" />
 <img width="1024" height="1536" alt="sinvc" src="https://github.com/user-attachments/assets/6fb90b90-9f9e-40f1-add7-0f44e0766dad" />
 
-
+pleae use the provided images for the  main icon for this system, and create two themes, dedicated to both these images
 Tweak Easy – Harm Reduction Order & Case Management System
 
 Tweak Easy is a comprehensive, professional-grade web application designed to support harm reduction outreach teams in delivering effective services to clients. The platform streamlines order placement, case management, incident reporting, and referral operations for staff, while also empowering clients to arrange delivery and pickup of harm reduction supplies.
