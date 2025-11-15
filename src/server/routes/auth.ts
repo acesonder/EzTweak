@@ -105,4 +105,69 @@ router.post('/login',
   }
 );
 
+// Forgot password (simplified - in production would send email)
+router.post('/forgot-password',
+  body('email').isEmail().normalizeEmail(),
+  async (req: Request, res: Response) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { email } = req.body;
+
+    db.get(
+      'SELECT id, username, email FROM users WHERE email = ?',
+      [email],
+      (err, user: any) => {
+        if (err) {
+          return res.status(500).json({ message: 'Server error' });
+        }
+
+        // Always return success to avoid email enumeration
+        // In production, this would send an email with a reset token
+        res.json({
+          message: 'If an account with that email exists, a password reset link has been sent.',
+          // For demo purposes, return the username
+          ...(user && { username: user.username })
+        });
+      }
+    );
+  }
+);
+
+// Reset password (simplified - in production would require token validation)
+router.post('/reset-password',
+  body('username').trim().escape(),
+  body('newPassword').isLength({ min: 6 }),
+  async (req: Request, res: Response) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { username, newPassword } = req.body;
+
+    try {
+      const hashedPassword = await bcrypt.hash(newPassword, 10);
+      
+      db.run(
+        'UPDATE users SET password = ?, updated_at = CURRENT_TIMESTAMP WHERE username = ?',
+        [hashedPassword, username],
+        function(err) {
+          if (err) {
+            return res.status(500).json({ message: 'Error updating password' });
+          }
+          if (this.changes === 0) {
+            return res.status(404).json({ message: 'User not found' });
+          }
+          res.json({ message: 'Password updated successfully' });
+        }
+      );
+    } catch (error) {
+      res.status(500).json({ message: 'Server error' });
+    }
+  }
+);
+
 export default router;

@@ -8,6 +8,9 @@ import { initDatabase } from './config/database';
 import authRoutes from './routes/auth';
 import productsRoutes from './routes/products';
 import ordersRoutes from './routes/orders';
+import casesRoutes from './routes/cases';
+import incidentsRoutes from './routes/incidents';
+import referralsRoutes from './routes/referrals';
 
 dotenv.config();
 
@@ -26,6 +29,9 @@ initDatabase();
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productsRoutes);
 app.use('/api/orders', ordersRoutes);
+app.use('/api/cases', casesRoutes);
+app.use('/api/incidents', incidentsRoutes);
+app.use('/api/referrals', referralsRoutes);
 
 // Health check
 app.get('/api/health', (_req, res) => {
