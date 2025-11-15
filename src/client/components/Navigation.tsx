@@ -38,21 +38,34 @@ const Navigation: React.FC = () => {
             <span className="nav-icon">🏥</span>
             Products
           </Link>
+          <Link to="/messaging" className={`nav-link ${isActive('/messaging') ? 'active' : ''}`}>
+            <span className="nav-icon">💬</span>
+            Messages
+          </Link>
           {(user?.role === 'staff' || user?.role === 'admin') && (
             <>
               <Link to="/cases" className={`nav-link ${isActive('/cases') ? 'active' : ''}`}>
-                <span className="nav-icon">📋</span>
+                <span className="nav-icon">👥</span>
                 Cases
               </Link>
               <Link to="/incidents" className={`nav-link ${isActive('/incidents') ? 'active' : ''}`}>
                 <span className="nav-icon">⚠️</span>
                 Incidents
               </Link>
+              <Link to="/referrals" className={`nav-link ${isActive('/referrals') ? 'active' : ''}`}>
+                <span className="nav-icon">📊</span>
+                Referrals
+              </Link>
             </>
           )}
         </div>
 
         <div className="nav-actions">
+          <Link to="/notifications" className="notification-icon" title="Notifications">
+            <span className="nav-icon">🔔</span>
+            <span className="notification-badge">3</span>
+          </Link>
+          
           <button 
             onClick={toggleTheme} 
             className="theme-toggle"
@@ -70,9 +83,26 @@ const Navigation: React.FC = () => {
               />
               <span className="user-name">{user?.full_name || user?.username}</span>
             </Link>
-            <button onClick={logout} className="logout-btn">
-              Logout
-            </button>
+            <div className="dropdown-menu">
+              <Link to="/profile" className="dropdown-item">
+                <span className="nav-icon">👤</span>
+                Profile
+              </Link>
+              <Link to="/settings" className="dropdown-item">
+                <span className="nav-icon">⚙️</span>
+                Settings
+              </Link>
+              {user?.role === 'admin' && (
+                <Link to="/admin" className="dropdown-item">
+                  <span className="nav-icon">🛠️</span>
+                  Admin Panel
+                </Link>
+              )}
+              <button onClick={logout} className="dropdown-item logout-item">
+                <span className="nav-icon">🚪</span>
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       </div>

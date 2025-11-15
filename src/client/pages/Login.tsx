@@ -90,6 +90,7 @@ const Login: React.FC = () => {
 
         <div className="auth-footer">
           <p>Don't have an account? <Link to="/register">Register here</Link></p>
+          <p><Link to="/forgot-password">Forgot your password?</Link></p>
           <p className="demo-info">
             <strong>Demo Account:</strong><br />
             Username: admin<br />

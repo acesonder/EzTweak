@@ -2,10 +2,18 @@ import React, { useState, useEffect, createContext, useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import ForgotPassword from './pages/ForgotPassword';
 import Dashboard from './pages/Dashboard';
 import Orders from './pages/Orders';
 import Products from './pages/Products';
 import Profile from './pages/Profile';
+import Cases from './pages/Cases';
+import Incidents from './pages/Incidents';
+import Referrals from './pages/Referrals';
+import Settings from './pages/Settings';
+import Admin from './pages/Admin';
+import Messaging from './pages/Messaging';
+import Notifications from './pages/Notifications';
 
 // Theme Context
 interface ThemeContextType {
@@ -104,6 +112,7 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route
               path="/dashboard"
               element={
@@ -133,6 +142,62 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/cases"
+              element={
+                <ProtectedRoute>
+                  <Cases />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/incidents"
+              element={
+                <ProtectedRoute>
+                  <Incidents />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/referrals"
+              element={
+                <ProtectedRoute>
+                  <Referrals />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/settings"
+              element={
+                <ProtectedRoute>
+                  <Settings />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <Admin />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/messaging"
+              element={
+                <ProtectedRoute>
+                  <Messaging />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/notifications"
+              element={
+                <ProtectedRoute>
+                  <Notifications />
                 </ProtectedRoute>
               }
             />
