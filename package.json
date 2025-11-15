@@ -1,0 +1,50 @@
+{
+  "name": "eztweak",
+  "version": "1.0.0",
+  "description": "<img width=\"1024\" height=\"1024\" alt=\"tweak-easy\" src=\"https://github.com/user-attachments/assets/3fa3dc03-5260-469a-80cc-a6c392ca3e9a\" /> <img width=\"1024\" height=\"1536\" alt=\"sinvc\" src=\"https://github.com/user-attachments/assets/6fb90b90-9f9e-40f1-add7-0f44e0766dad\" />",
+  "main": "dist/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "nodemon --watch src/server --exec \"ts-node --project tsconfig.ts-node.json src/server/server.ts\"",
+    "client:dev": "vite",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build",
+    "build:server": "tsc -p tsconfig.server.json",
+    "start": "node dist/server.js",
+    "preview": "vite preview"
+  },
+  "keywords": ["harm-reduction", "case-management", "healthcare"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.1.1",
+    "bcryptjs": "^3.0.3",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "express-validator": "^7.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.6",
+    "sqlite3": "^5.1.7",
+    "vite": "^7.2.2"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/express-session": "^1.18.2",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
