@@ -1,0 +1,268 @@
+/* Authentication Pages CSS */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.auth-card {
+    background: var(--mw-card-bg);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+body[data-theme="neon"] .auth-card {
+    background: var(--neon-card-bg);
+    border: 2px solid var(--neon-border);
+    box-shadow: 0 0 40px var(--neon-shadow);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.auth-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.auth-logo:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+.auth-header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+body[data-theme="medicine-wheel"] .auth-header h1 {
+    color: var(--mw-primary);
+}
+
+body[data-theme="neon"] .auth-header h1 {
+    background: linear-gradient(135deg, var(--neon-primary), var(--neon-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.auth-header p {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.auth-form {
+    margin-bottom: 24px;
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.auth-form input,
+.auth-form select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+body[data-theme="medicine-wheel"] .auth-form input:focus,
+body[data-theme="medicine-wheel"] .auth-form select:focus {
+    border-color: var(--mw-accent-red);
+    box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.1);
+}
+
+body[data-theme="neon"] .auth-form input:focus,
+body[data-theme="neon"] .auth-form select:focus {
+    border-color: var(--neon-primary);
+    box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.2);
+}
+
+.auth-button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+body[data-theme="medicine-wheel"] .auth-button {
+    background: linear-gradient(135deg, var(--mw-primary), var(--mw-secondary));
+    color: white;
+}
+
+body[data-theme="medicine-wheel"] .auth-button:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--mw-accent-red), var(--mw-secondary));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+}
+
+body[data-theme="neon"] .auth-button {
+    background: linear-gradient(135deg, var(--neon-primary), var(--neon-secondary));
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+}
+
+body[data-theme="neon"] .auth-button:hover:not(:disabled) {
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+.auth-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.auth-footer {
+    text-align: center;
+    font-size: 14px;
+}
+
+.auth-footer p {
+    margin: 12px 0;
+}
+
+.auth-footer a {
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+body[data-theme="medicine-wheel"] .auth-footer a {
+    color: var(--mw-accent-red);
+}
+
+body[data-theme="medicine-wheel"] .auth-footer a:hover {
+    color: var(--mw-primary);
+    text-decoration: underline;
+}
+
+body[data-theme="neon"] .auth-footer a {
+    color: var(--neon-primary);
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+}
+
+body[data-theme="neon"] .auth-footer a:hover {
+    color: var(--neon-secondary);
+    text-shadow: 0 0 15px rgba(157, 78, 221, 0.7);
+}
+
+.demo-info {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+body[data-theme="medicine-wheel"] .demo-info {
+    background: rgba(139, 69, 19, 0.1);
+    border: 1px solid var(--mw-border);
+}
+
+body[data-theme="neon"] .demo-info {
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid var(--neon-border);
+}
+
+.theme-toggle {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.theme-toggle-btn {
+    padding: 10px 20px;
+    border: 2px solid;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body[data-theme="medicine-wheel"] .theme-toggle-btn {
+    background: transparent;
+    border-color: var(--mw-primary);
+    color: var(--mw-primary);
+}
+
+body[data-theme="medicine-wheel"] .theme-toggle-btn:hover {
+    background: var(--mw-primary);
+    color: white;
+}
+
+body[data-theme="neon"] .theme-toggle-btn {
+    background: transparent;
+    border-color: var(--neon-primary);
+    color: var(--neon-primary);
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+}
+
+body[data-theme="neon"] .theme-toggle-btn:hover {
+    background: var(--neon-primary);
+    color: var(--neon-bg);
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.6);
+}
+
+#theme-icon {
+    font-size: 18px;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/* Button loading state */
+.button-loading {
+    display: none;
+}
+
+.auth-button:disabled .button-text {
+    display: none;
+}
+
+.auth-button:disabled .button-loading {
+    display: inline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .auth-card {
+        padding: 24px;
+    }
+
+    .auth-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .auth-header h1 {
+        font-size: 24px;
+    }
+}

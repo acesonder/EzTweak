@@ -1,0 +1,277 @@
+/* Main CSS - Medicine Wheel Theme with Light/Dark modes */
+
+:root {
+    /* Medicine Wheel Theme (Light) */
+    --mw-primary: #8B4513;
+    --mw-secondary: #D2691E;
+    --mw-accent-red: #DC143C;
+    --mw-accent-yellow: #FFD700;
+    --mw-accent-white: #F5F5DC;
+    --mw-accent-black: #2F2F2F;
+    --mw-bg: #FFF8DC;
+    --mw-card-bg: #FFFFFF;
+    --mw-text: #2F2F2F;
+    --mw-text-light: #666666;
+    --mw-border: #D2691E;
+    --mw-shadow: rgba(139, 69, 19, 0.1);
+
+    /* Neon Theme (Dark) */
+    --neon-primary: #00D9FF;
+    --neon-secondary: #9D4EDD;
+    --neon-accent: #FF006E;
+    --neon-bg: #0A0E27;
+    --neon-card-bg: #151B3B;
+    --neon-text: #FFFFFF;
+    --neon-text-light: #B8C0E0;
+    --neon-border: #00D9FF;
+    --neon-shadow: rgba(0, 217, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Medicine Wheel Theme */
+body[data-theme="medicine-wheel"] {
+    background: var(--mw-bg);
+    color: var(--mw-text);
+}
+
+body[data-theme="medicine-wheel"] .card {
+    background: var(--mw-card-bg);
+    border: 2px solid var(--mw-border);
+    box-shadow: 0 4px 6px var(--mw-shadow);
+}
+
+body[data-theme="medicine-wheel"] input,
+body[data-theme="medicine-wheel"] textarea,
+body[data-theme="medicine-wheel"] select {
+    background: #FFFFFF;
+    border: 2px solid var(--mw-border);
+    color: var(--mw-text);
+}
+
+body[data-theme="medicine-wheel"] button.primary {
+    background: linear-gradient(135deg, var(--mw-primary), var(--mw-secondary));
+    color: white;
+}
+
+body[data-theme="medicine-wheel"] button.primary:hover {
+    background: linear-gradient(135deg, var(--mw-secondary), var(--mw-primary));
+}
+
+/* Neon Theme */
+body[data-theme="neon"] {
+    background: var(--neon-bg);
+    color: var(--neon-text);
+}
+
+body[data-theme="neon"] .card {
+    background: var(--neon-card-bg);
+    border: 2px solid var(--neon-border);
+    box-shadow: 0 0 20px var(--neon-shadow);
+}
+
+body[data-theme="neon"] input,
+body[data-theme="neon"] textarea,
+body[data-theme="neon"] select {
+    background: rgba(21, 27, 59, 0.8);
+    border: 2px solid var(--neon-border);
+    color: var(--neon-text);
+}
+
+body[data-theme="neon"] button.primary {
+    background: linear-gradient(135deg, var(--neon-primary), var(--neon-secondary));
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+}
+
+body[data-theme="neon"] button.primary:hover {
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.8);
+}
+
+/* Common Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    border-radius: 12px;
+    padding: 24px;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    transform: scale(1.02);
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+button.secondary {
+    background: #6c757d;
+    color: white;
+}
+
+button.secondary:hover {
+    background: #5a6268;
+}
+
+/* Notification System */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    animation: slideInRight 0.3s ease;
+    max-width: 400px;
+}
+
+.notification.success {
+    background: #d4edda;
+    border-left: 4px solid #28a745;
+    color: #155724;
+}
+
+.notification.error {
+    background: #f8d7da;
+    border-left: 4px solid #dc3545;
+    color: #721c24;
+}
+
+.notification.warning {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    color: #856404;
+}
+
+.notification.info {
+    background: #d1ecf1;
+    border-left: 4px solid #17a2b8;
+    color: #0c5460;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}
+
+/* Loading Spinner */
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+/* Error and Success Messages */
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    border: 1px solid #f5c6cb;
+}
+
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    border: 1px solid #c3e6cb;
+}
